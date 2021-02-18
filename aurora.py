@@ -34,6 +34,8 @@ ax.xaxis.set_minor_formatter(minor_formatter)
 minor_locator = mdates.DayLocator()
 ax.xaxis.set_minor_locator(minor_locator)
 
+ax.xaxis.set_tick_params(which='minor', pad=15)
+
 colormap = np.where(points>0.5, 'r', 'b')
 plt.ylim(0, 1)
 plt.axhline(0.5)
@@ -42,4 +44,8 @@ plt.bar(times, points, color=colormap, width=0.005)
 ax.set_ylabel('nT/s')
 ax.set_title("Magneettinen aktiivisuus kuluneen vuorokauden aikana")
 
-plt.show()
+plt.margins(x=0)
+fig = plt.figure(1)
+fig.set_size_inches(15, 5)
+
+plt.savefig("figure.png")
