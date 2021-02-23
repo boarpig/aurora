@@ -41,11 +41,14 @@ plt.ylim(0, 1)
 plt.axhline(0.5)
 plt.bar(times, points, color=colormap, width=0.005)
 
+for tick in plt.xticks()[0]:
+    plt.axvline(tick, dashes=(1,2), linewidth=0.5)
+
 ax.set_ylabel('nT/s')
 ax.set_title("Magneettinen aktiivisuus kuluneen vuorokauden aikana")
 
-plt.margins(x=0)
 fig = plt.figure(1)
 fig.set_size_inches(15, 5)
 
-plt.savefig("figure.png")
+plt.show()
+#plt.savefig("figure.png")
